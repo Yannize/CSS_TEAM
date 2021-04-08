@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Train One', cursive;
+}
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+h1 {
+  color: white;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background-color: rgb(31, 31, 31);
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  perspective: 1000px;
+  transform: translateX(-25px);
+  z-index: 1;
+}
+
+.item {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  font-size: 10rem;
+  background: rgba(255, 255, 255, 0.4);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  transform: rotateY(calc(18deg * var(--i))) translateZ(400px);
+}
+
+@keyframes rotate {
+
+  from {
+    background: rgb(0, 102, 255);
+    transform: rotateY(calc(18deg * var(--i))) rotateX(0deg) rotateZ(0deg) translateZ(400px);
+  }
+
+  50% {
+    background: rgb(0, 255, 106);
+  }
+
+  to {
+    background: crimson;
+    transform: rotateY(calc(18deg * var(--i) + 360deg)) rotateX(360deg) rotateZ(360deg) translateZ(400px);
+  }
+}
+
+h1 {
+  font-size: 7rem;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: animtest infinite 1s linear;
+  color: crimson;
+}
+
+
+
+@keyframes animtest {
+  0% {
+    opacity: 1;
+  }
+
+  25% {
+    transform: rotateY(100deg);
+    opacity: 0;
+  }
+
+  50% {
+    transform: rotateY(250deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotateX(180deg) rot;
+    color: yellow;
+    opacity: 1;
+  }
+}
+
+
+.container-1 .item {
+  animation: rotate 5s infinite linear;
+}
+
+.container-2 .item {
+  animation: rotate 5s infinite linear reverse;
+}
+
+
+.container-1 {
+  z-index: 3;
+  transform: translateY(310px)
+}
+
+.container-2 {
+  z-index: 3;
+  transform: translateY(-310px)
+}

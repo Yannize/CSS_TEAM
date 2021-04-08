@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background: radial-gradient(white 10%, rgb(31, 31, 31));
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  perspective: 1000px;
+  transform: translateX(-100px);
+}
+
+.item {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  font-size: 10rem;
+  background: rgba(255, 255, 255, 0.4);
+  display: grid;
+  place-items: center;
+  border-radius: 20px;
+  transform: rotateY(calc(30deg * var(--i))) translateZ(400px);
+  /* animation: rotate 20s infinite linear; */
+}
+
+@keyframes rotate {
+
+  from {
+    transform: rotateY(calc(30deg * var(--i))) rotateX(0deg) rotateZ(0deg) translateZ(400px);
+  }
+
+  to {
+    transform: rotateY(calc(30deg * var(--i) + 360deg)) translateZ(400px);
+  }
+}
